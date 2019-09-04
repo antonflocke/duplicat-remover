@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 from os import walk, makedirs, rename
 from hashlib import sha1
 from shutil import move
