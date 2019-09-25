@@ -62,12 +62,12 @@ print(f"[ ] Copping Files", end='', flush=True)
 
 for h in duplicates:
     for i, f in enumerate(h['files']):
-        # print(f"{h['hash']} Nr: {i+1} --> {f['path']}/{f['filename']}")
+        # print(f"{h['hash']} Nr {i+1} --> {f['path']}/{f['filename']}")
         try:
             if i == 0:
                 pass
             else:
-                move(f"{f['path']}/{f['filename']}", f"./duplicates/{h['hash']} Nr: {i+1}")
+                move(f"{f['path']}/{f['filename']}", f"./duplicates/{h['hash']} Nr {i+1}")
         except:
             pass
 
