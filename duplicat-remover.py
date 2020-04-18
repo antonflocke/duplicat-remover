@@ -17,8 +17,12 @@ for i in walk('.'):
 timer = time()
 print(f"[ ] Calculating hashes", end='', flush=True)
 for folder in files:
+    if '/.' in folder[0] or folder == './duplicates':
+        continue
     for fileName in folder[2]:
         path = folder[0]
+        if fileName[0] == '.':
+            continue
         with open(f'{path}/{fileName}', 'rb') as f:
             hasher = sha1()
             hasher.update(f.read())
@@ -30,7 +34,7 @@ for folder in files:
             cluster['files'].append(newFile)
             cluster['len'] += 1
         else:
-            hashes.append({'hash': value, 'len':1, 'files': [newFile]})
+            hashes.append({'hash': value, 'len': 1, 'files': [newFile]})
 print(f"\r[\u001b[32;1m*\u001b[0m] Calculating hashes     --> took {time() - timer:.4f}")
 
 ##########################################
